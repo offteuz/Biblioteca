@@ -37,7 +37,7 @@ public class Livro {
     public Long quantidadeDisponivel;
 
     @ManyToOne
-    private Categoria categoria;
+    private Categoria idCategoria;
 
     public Livro(String titulo, String autor) {
         if (titulo == null || titulo.isEmpty()) {
