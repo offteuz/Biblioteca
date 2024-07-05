@@ -1,15 +1,15 @@
 package br.com.teksystem.biblioteca.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Entity
 @Table(name = "t_categoria")
 public class Categoria {
@@ -20,10 +20,14 @@ public class Categoria {
             generator = "seq_categoria")
     @SequenceGenerator(
             name = "seq_categoria",
-            sequenceName = "seq_categoria")
+            sequenceName = "seq_categoria",
+            allocationSize = 1)
     @Column(name = "id_categoria")
     public Long idCategoria;
 
     public String nome;
+
+    @OneToMany(mappedBy = "idCategoria")
+    private List<Livro> livros;
 
 }

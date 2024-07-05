@@ -47,4 +47,12 @@ public class CategoriaController {
         return ResponseEntity.ok(mensagem);
     }
 
+    @PatchMapping("/categorias/{idCategoria}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<Categoria> atualizarNomeCategoria(
+            @PathVariable Long idCategoria,
+            @RequestBody String nome) {
+        Categoria categoriaExistente = categoriaService.alterarNomeCategoria(idCategoria, nome);
+        return ResponseEntity.ok(categoriaExistente);
+    }
 }

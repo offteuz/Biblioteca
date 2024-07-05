@@ -20,7 +20,8 @@ public class Livro {
             generator = "seq_livro")
     @SequenceGenerator(
             name = "seq_livro",
-            sequenceName = "livro")
+            sequenceName = "livro",
+            allocationSize = 1)
     @Column(name = "id_livro")
     public Long idLivro;
 
@@ -37,6 +38,7 @@ public class Livro {
     public Long quantidadeDisponivel;
 
     @ManyToOne
+    @JoinColumn(name = "id_categoria")
     private Categoria idCategoria;
 
     public Livro(String titulo, String autor) {

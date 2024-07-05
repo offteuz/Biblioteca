@@ -55,5 +55,12 @@ public class CategoriaService {
         }
     }
 
+    public Categoria alterarNomeCategoria(Long id, String nome) {
 
+        Categoria categoriaExistente = categoriaRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Livro não encontrado!"));
+
+        categoriaExistente.setNome(nome);
+        return categoriaRepository.save(categoriaExistente);
+    }
 }
