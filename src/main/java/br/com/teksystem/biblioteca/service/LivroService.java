@@ -1,5 +1,6 @@
 package br.com.teksystem.biblioteca.service;
 
+import br.com.teksystem.biblioteca.dto.CategoriaExibicaoDTO;
 import br.com.teksystem.biblioteca.dto.LivroCadastroDTO;
 import br.com.teksystem.biblioteca.dto.LivroExibicaoDTO;
 import br.com.teksystem.biblioteca.model.Livro;
@@ -24,6 +25,14 @@ public class LivroService {
 
         Livro livroSalvo = livroRepository.save(livro);
         return new LivroExibicaoDTO(livroSalvo);
+    }
+
+    public List<LivroExibicaoDTO> listarLivros(Long idLivro) {
+        return livroRepository
+                .findAll()
+                .stream()
+                .map(LivroExibicaoDTO::new)
+                .toList();
     }
 
 }

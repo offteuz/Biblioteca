@@ -20,26 +20,28 @@ public class Livro {
             generator = "seq_livro")
     @SequenceGenerator(
             name = "seq_livro",
-            sequenceName = "livro",
+            sequenceName = "seq_livro",
             allocationSize = 1)
     @Column(name = "id_livro")
-    public Long idLivro;
+    private Long idLivro;
 
-    public String titulo;
-    public String autor;
-    public String descricao;
+    private String titulo;
+    private String autor;
+    private String descricao;
 
     @Column(name = "ano_lancamento")
-    public Date anoDeLancamento;
+    private Date anoDeLancamento;
 
-    public Long quantidade;
+    private Long quantidade;
 
     @Column(name = "quantidade_disponivel")
-    public Long quantidadeDisponivel;
+    private Long quantidadeDisponivel;
 
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
-    private Categoria idCategoria;
+    @JoinColumn(
+            name = "id_categoria",
+            referencedColumnName = "id_categoria")
+    private Categoria categoria;
 
     public Livro(String titulo, String autor) {
         if (titulo == null || titulo.isEmpty()) {

@@ -23,11 +23,11 @@ public class Categoria {
             sequenceName = "seq_categoria",
             allocationSize = 1)
     @Column(name = "id_categoria")
-    public Long idCategoria;
+    private Long idCategoria;
 
-    public String nome;
+    private String nome;
 
-    @OneToMany(mappedBy = "idCategoria")
+    @OneToMany(mappedBy = "categoria")
     private List<Livro> livros;
 
 }

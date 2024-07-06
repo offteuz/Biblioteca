@@ -13,7 +13,7 @@ public record LivroExibicaoDTO(
         Date anoDeLancamento,
         Long quantidade,
         Long quantidadeDisponivel,
-        Categoria idCategoria
+        Categoria categoria
 ) {
     public LivroExibicaoDTO(Livro livro) {
         this(
@@ -24,7 +24,7 @@ public record LivroExibicaoDTO(
                 livro.getAnoDeLancamento(),
                 livro.getQuantidade(),
                 livro.getQuantidadeDisponivel(),
-                livro.getIdCategoria()
+                livro.getCategoria()
         );
     }
 }

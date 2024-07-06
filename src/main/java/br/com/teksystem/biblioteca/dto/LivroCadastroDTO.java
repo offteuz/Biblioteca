@@ -12,6 +12,6 @@ public record LivroCadastroDTO(
         Date anoDeLancamento,
         Long quantidade,
         Long quantidadeDisponivel,
-        Categoria idCategoria
+        Categoria categoria
 ) {
 }
